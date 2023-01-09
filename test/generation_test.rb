@@ -82,8 +82,8 @@ class GenerationTest < Test::Unit::TestCase
       assert_equal true, pdf.generate
       assert_equal pdf.result[:output], execute_htmldoc(path2, tempfile.path, "--format #{format}")
       # Delete temporary files
-      File.delete(path1) if File.exists?(path1)
-      File.delete(path2) if File.exists?(path2)
+      File.delete(path1) if File.exist?(path1)
+      File.delete(path2) if File.exist?(path2)
       # Simple webpag format test
       pdf = PDF::HTMLDoc.new(format)
       pdf.set_option :outfile, path1
@@ -92,8 +92,8 @@ class GenerationTest < Test::Unit::TestCase
       assert_equal true, pdf.generate
       assert_equal pdf.result[:output], execute_htmldoc(path2, tempfile.path, "--webpage --format #{format}")
       # Delete temporary files
-      File.delete(path1) if File.exists?(path1)
-      File.delete(path2) if File.exists?(path2)
+      File.delete(path1) if File.exist?(path1)
+      File.delete(path2) if File.exist?(path2)
       # Simple options test
       pdf = PDF::HTMLDoc.new(format)
       pdf.set_option :outfile, path1
@@ -102,15 +102,15 @@ class GenerationTest < Test::Unit::TestCase
       assert_equal true, pdf.generate
       assert_equal pdf.result[:output], execute_htmldoc(path2, tempfile.path, "--bodycolor black --format #{format}")
       # Delete temporary files
-      File.delete(path1) if File.exists?(path1)
-      File.delete(path2) if File.exists?(path2)
+      File.delete(path1) if File.exist?(path1)
+      File.delete(path2) if File.exist?(path2)
       # Free text generate test
       pdf = PDF::HTMLDoc.new(format)
       pdf.add_page page
       pdf.generate
       assert_equal pdf.result[:output], execute_htmldoc(path2, tempfile.path, "--format #{format}")
       # Delete temporary files
-      File.delete(path2) if File.exists?(path2)
+      File.delete(path2) if File.exist?(path2)
       # Inline generation test
       result = PDF::HTMLDoc.create(format) do |p|
         p.set_option :outfile, path1

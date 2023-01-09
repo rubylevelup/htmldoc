@@ -85,7 +85,7 @@ class BasicTest < Test::Unit::TestCase
     tempfile = Tempfile.new("htmldoc.test")
     pages = ["http://example.org/", tempfile.path]
     tmpstring = "1234567890"
-    tmpstring += "1234567890" while File.exists?(tmpstring)
+    tmpstring += "1234567890" while File.exist?(tmpstring)
     pages << tmpstring
     pages.each do |page|
       pdf << page

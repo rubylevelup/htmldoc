@@ -129,7 +129,7 @@ module PDF
     def add_page(page)
       if /\A(http|https)/ =~ page && page !~ /\r|\n/
         type = :url
-      elsif File.exists?(page)
+      elsif File.exist?(page)
         type = :file
       else
         type = :text
